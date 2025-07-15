@@ -10,6 +10,7 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("unknown");
+  const environmentVariable = import.meta.env.VITE_ENVIRONMENT_VARIABLE as string;
 
   return (
     <>
@@ -32,6 +33,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + Hono + Cloudflare</h1>
+
       <div className="card">
         <button
           onClick={() => setCount((count) => count + 1)}
@@ -56,6 +58,11 @@ function App() {
         </button>
         <p>
           Edit <code>worker/index.ts</code> to change the name
+        </p>
+      </div>
+      <div className="card">
+        <p>
+          Environment Variable: <code>{environmentVariable || 'Not set'}</code>
         </p>
       </div>
       <p className="read-the-docs">Click on the logos to learn more</p>
